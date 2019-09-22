@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+$dark: rgba(0, 0, 0, 0.73);
+$primary: #ef5350;
+$secondary: #FFC91A;
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $dark;
+}
