@@ -1,16 +1,30 @@
-<p>Click em algum card para visualizar mais informações</p>
-<div class="main">
-    <div *ngFor="let nome of info; let i = index;" class="card">
-        {{nome.name.toUpperCase()}}
-        <img [src]="imagens[i]">
-    </div>
+<div>Click em algum Card para visualizar mais informações!</div>
 
+<button (click)="openModal()" #myBtn id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div #myModal id="myModal" class="modal">
+    
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span (click)="closeModal()" #close class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
 
 </div>
 
+<div class="main">
+    <div (click)="openModal()" *ngFor="let nome of nomes; let i = index;" class="card">
+        <div>
+            <h3>{{nome.name.toUpperCase()}}</h3>
+            <img [src]="imagens[i]">
+        </div>
+    </div>
+</div>
 <footer>
-        <pre id="developed">Developed with </pre>
-        <i class="material-icons">favorite</i>
-        <pre> by <a target="_blank" href="https://github.com/GlHenrique">Glenio</a></pre>
+    <pre id="developed">Developed with </pre>
+    <i class="material-icons">favorite</i>
+    <pre> by <a target="_blank" href="https://github.com/GlHenrique">Glenio</a></pre>
 </footer>
+
 
