@@ -1,16 +1,16 @@
 <p>Click em algum card para visualizar mais informações</p>
 <div class="main">
-    <div *ngFor="let nome of nomes" class="card">
+    <div *ngFor="let nome of nomes; let i = index" class="card">
         {{nome.name.toUpperCase()}}
-        <img [src]="imagens">
+        <img [src]="imagens[i]">
     </div>
 
 
 </div>
 
 <footer>
-    <pre>Developed with </pre>
-    <i class="material-icons">favorite</i>
-    <pre> by <a target="_blank" href="https://github.com/GlHenrique">Glenio</a></pre>
+        <pre id="developed">Developed with </pre>
+        <i class="material-icons">favorite</i>
+        <pre> by <a target="_blank" href="https://github.com/GlHenrique">Glenio</a></pre>
 </footer>
 
