@@ -1,6 +1,6 @@
 <p>Click em algum card para visualizar mais informações</p>
 <div class="main">
-    <div *ngFor="let nome of nomes; let i = index" class="card">
+    <div *ngFor="let nome of info; let i = index;" class="card">
         {{nome.name.toUpperCase()}}
         <img [src]="imagens[i]">
     </div>
