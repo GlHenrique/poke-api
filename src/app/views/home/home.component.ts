@@ -34,8 +34,6 @@ export class HomeComponent implements OnInit {
                     // }
                         console.log(data.abilities);
                         this.habilidades = data.abilities;
-
-
                 })
             }
         });
