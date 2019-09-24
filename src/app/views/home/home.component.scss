@@ -31,6 +31,12 @@
     font-weight: bold;
 }
 
+#close {
+    &:hover {
+        color: red;
+    }
+}
+
 .close:hover,
 .close:focus {
     color: #000;
@@ -53,6 +59,8 @@
     top: 0;
     h3 {
         margin: 0;
+        font-family: 'Roboto', sans-serif;
+        font-style: italic;
     }
 }
 

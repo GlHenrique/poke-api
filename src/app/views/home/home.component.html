@@ -1,18 +1,3 @@
-<div>Click em algum Card para visualizar mais informações!</div>
-
-<button (click)="openModal()" #myBtn id="myBtn">Open Modal</button>
-
-<!-- The Modal -->
-<div #myModal id="myModal" class="modal">
-    
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span (click)="closeModal()" #close class="close">&times;</span>
-        <p>Some text in the Modal..</p>
-    </div>
-
-</div>
-
 <div class="main">
     <div (click)="openModal()" *ngFor="let nome of nomes; let i = index;" class="card">
         <div>
@@ -20,6 +5,13 @@
             <img [src]="imagens[i]">
         </div>
     </div>
+    <div #myModal id="myModal" class="modal">
+        <div class="modal-content">
+            <span (click)="closeModal()" #close class="close"><i id="close" class="material-icons">close</i></span>
+            <p *ngFor="let habilidade of habilidades; let i = index">{{habilidade.ability.name}}</p>
+        </div>
+    </div>
+    
 </div>
 <footer>
     <pre id="developed">Developed with </pre>

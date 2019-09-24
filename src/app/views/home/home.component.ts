@@ -10,6 +10,8 @@ export class HomeComponent implements OnInit {
     nomes: any;
     imagens: any[] = [];
     info: any;
+    habilidades: any[] = [];
+
 
     @ViewChild('myBtn', {static: false}) myBtn: ElementRef;
     @ViewChild('myModal', {static: false}) myModal: ElementRef;
@@ -27,7 +29,13 @@ export class HomeComponent implements OnInit {
             this.myModal.nativeElement.style.display = 'block';
             for(let i = 0; i < this.nomes.length; i++) {
                 this.api.http(`/${this.nomes[i].name}`).subscribe(data => {
-                    console.log(data);
+                    // if(data.abilities[i].ability !== undefined) {
+                    //     console.log(data.abilities[i]);
+                    // }
+                        console.log(data.abilities);
+                        this.habilidades = data.abilities;
+
+
                 })
             }
         });
