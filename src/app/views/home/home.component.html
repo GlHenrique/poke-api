@@ -1,5 +1,6 @@
 <div class="main">
-    <div (click)="openModal()" *ngFor="let nome of nomes; let i = index;" class="card">
+    <div *ngIf="loading" class="circle"></div>
+    <div #cards (click)="openModal(nome.name)" *ngFor="let nome of nomes | slice:0:paginator; let i = index;" class="card">
         <div>
             <h3>{{nome.name.toUpperCase()}}</h3>
             <img [src]="imagens[i]">
@@ -8,12 +9,13 @@
     <div #myModal id="myModal" class="modal">
         <div class="modal-content">
             <span (click)="closeModal()" #close class="close"><i id="close" class="material-icons">close</i></span>
-            <p *ngFor="let habilidade of habilidades; let i = index; ">{{habilidade.ability.name.toUpperCase()}}</p>
+            <p class="habilidade" *ngFor="let habilidade of habilidades; let i = index;">
+                Habilidade {{i+1}}:  {{habilidade.ability.name.toUpperCase()}}
+            </p>
         </div>
     </div>
-    
 </div>
-<footer>
+<footer *ngIf="!loading">
     <pre id="developed">Developed with </pre>
     <i class="material-icons">favorite</i>
     <pre> by <a target="_blank" href="https://github.com/GlHenrique">Glenio</a></pre>
