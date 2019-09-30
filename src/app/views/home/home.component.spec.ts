@@ -35,6 +35,8 @@ describe('HomeComponent', () => {
 
     });
     it('Testar o método openModal()', async(() => {
+        spyOn(console, 'error');
+        component.openModal('pikachu');
         expect(component.openModal('pikachu')).toBeUndefined();
     }));
     it('Testar o método closeModal()', async(() => {
@@ -43,6 +45,8 @@ describe('HomeComponent', () => {
     it('Teste o método getNamePokemon()', async(() => {
         expect(component.getNamePokemon('/1')).toBeUndefined();
     }));
+
+
 
 
 });
