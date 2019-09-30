@@ -1,17 +1,26 @@
 <div class="main">
     <div *ngIf="loading" class="circle"></div>
-    <div #cards (click)="openModal(nome.name)" *ngFor="let nome of nomes | slice:0:paginator; let i = index;" class="card">
+    <div #cards (click)="openModal(nome.name)" *ngFor="let nome of nomes | slice:0:paginator; let i = index;"
+         class="card">
         <div>
             <h3>{{nome.name.toUpperCase()}}</h3>
-            <img [src]="imagens[i]">
+            <img id="image-card" [src]="imagens[i]" loading="lazy">
         </div>
     </div>
     <div #myModal id="myModal" class="modal">
         <div class="modal-content">
             <span (click)="closeModal()" #close class="close"><i id="close" class="material-icons">close</i></span>
-            <p class="habilidade" *ngFor="let habilidade of habilidades; let i = index;">
-                Habilidade {{i+1}}:  {{habilidade.ability.name.toUpperCase()}}
-            </p>
+            <div class="content">
+                <div class="text-content">
+                    <h1>{{nomesModal}}</h1>
+                    <p class="habilidade" *ngFor="let habilidade of habilidades; let i = index;">
+                        Habilidade {{i + 1}}:  {{habilidade.ability.name.toUpperCase()}}
+                    </p>
+                </div>
+                <div>
+                    <img id="image-modal" [src]="imagensModal">
+                </div>
+            </div>
         </div>
     </div>
 </div>

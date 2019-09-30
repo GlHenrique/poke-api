@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HOME_ROUTES} from './views/home/home.routes';
 
-const routes: Routes = [
+export const routes: Routes = [
 
     ...HOME_ROUTES
 ];

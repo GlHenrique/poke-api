@@ -4,14 +4,16 @@ import {ApiService} from '../../core/api.service';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
     nomes: any;
+    nomesModal: any;
     imagens: any[] = [];
+    imagensModal: any;
     info: any;
     habilidades: any[] = [];
-    paginator: any = 50
+    paginator: any = 50;
     loading: boolean = true;
 
     @ViewChild('cards', {static: false}) cards: ElementRef;
@@ -30,7 +32,7 @@ export class HomeComponent implements OnInit {
         }
         scrollFinal = scrollHeight - scrollTop === clientHeight;
         if (scrollFinal) {
-            this.paginator = this.paginator + 30
+            this.paginator = this.paginator + 30;
         }
     }
 
@@ -45,8 +47,11 @@ export class HomeComponent implements OnInit {
         setTimeout(() => {
             this.myModal.nativeElement.style.display = 'block';
             this.api.http(`/${nome}`).subscribe(data => {
+                // console.log(data)
                 if (data.abilities) {
+                    this.nomesModal = data.name;
                     this.habilidades = data.abilities;
+                    this.imagensModal = data.sprites.front_default;
                 }
             });
 
@@ -59,7 +64,6 @@ export class HomeComponent implements OnInit {
         });
     }
 
-
     getNamePokemon(urlPagina: string) {
         setTimeout(() => {
             this.api.http(urlPagina).subscribe(nomes => {
@@ -68,13 +72,11 @@ export class HomeComponent implements OnInit {
                     for (let i = 0; i < nomes.results.length; i++) {
                         this.api.http(`/${nomes.results[i].name}`).subscribe(data => {
                             this.imagens[i] = data.sprites.front_default;
-
                         });
                     };
                     this.loading = false;
                 }
             });
-
         });
 
     }
