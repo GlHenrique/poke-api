@@ -3,7 +3,8 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve --host 0.0.0.0 --disable-host-check",
+        "start": "node index.js",
+        "start-dev": "ng serve --host 0.0.0.0 --disable-host-check",
         "hmr": "ng serve --configuration hmr --host 0.0.0.0 --disable-host-check",
         "build": "ng build",
         "test": "ng test",
@@ -22,6 +23,7 @@
         "@angular/router": "~8.0.1",
         "angular-particle": "^1.0.4",
         "particles.js": "^2.0.0",
+        "express": "^4.17.1",
         "rxjs": "~6.4.0",
         "tslib": "^1.9.0",
         "zone.js": "~0.9.1"
@@ -47,5 +49,9 @@
         "ts-node": "~7.0.0",
         "tslint": "~5.15.0",
         "typescript": "~3.4.3"
+    },
+    "engines": {
+        "node": "12.4.0",
+        "npm": "6.11.3"
     }
 }
