@@ -66,8 +66,10 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+
         .text-content {
             word-wrap: break-word;
+
             h1 {
                 font-family: 'Roboto', sans-serif;
                 text-transform: uppercase;
@@ -130,6 +132,7 @@ p {
     margin: 1%;
     padding: 1%;
     cursor: pointer;
+
     #image-card {
         width: 60%
     }
